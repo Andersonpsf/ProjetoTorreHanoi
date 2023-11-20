@@ -56,7 +56,7 @@ superficie_teste.fill("Azure")
 #esse clicks foi feito para evitar que mais de um rect esteja na posição y (ele vai ir para essa posição ao ser clicado)
 clicks = c = 0
 while True:
-    //tela.blit serve para posicionar as imagens na tela
+    #tela.blit serve para posicionar as imagens na tela
     tela.blit(superficie_teste, (0, 5))
     tela.blit(superficie_base, (10, 760))
     tela.blit(madeira_surf, madeira_rect)
