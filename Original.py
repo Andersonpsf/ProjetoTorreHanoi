@@ -102,9 +102,6 @@ while True:
                                     print("Operação inválida")
                                     break
 
-
-
-
                             elif rect.collidepoint(mouse_pos) and clicks == 0:
                                 rect.y = 20
                                 clicks += 1
@@ -118,8 +115,7 @@ while True:
                 if event.key == K_v:
                     print("Deu certo")
 
-        pygame.display.update()
-        clock.tick(60)
-
 pygame.display.update()
 clock.tick(60)
+
+
