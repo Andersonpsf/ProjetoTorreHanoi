@@ -8,7 +8,8 @@ pygame.init()
 tela = pygame.display.set_mode((1400, 790))
 pygame.display.set_caption("Torre Hanoi")
 clock = pygame.time.Clock()
-//listas para cada haste (madeira)
+#listas para cada haste (madeira)
+#O objetivo das listas é que quando um rectangle sair de uma haste para outra ele também saia de uma lista para a correspondente da haste. (Explicação parte1)
 pilha_haste1: List[pygame.Rect] = []
 pilha_haste2: List[pygame.Rect] = []
 pilha_haste3: List[pygame.Rect] = []
@@ -39,7 +40,7 @@ haste1 = []
 haste2 = []
 haste3 = []
 
-//rect de rectangle que serve para saber os pontos de colisão e posicionar melhor as peças
+#rect de rectangle que serve para saber os pontos de colisão e posicionar melhor as peças
 pecas_rect = [surf.get_rect(midbottom=(300, 607 + i * 17)) for i, surf in enumerate(pecas_surf)]
 
 for pecas in pecas_rect:
@@ -51,6 +52,8 @@ for pecas in pecas_rect:
 posicao_y_torreHanoi = 20
 superficie_teste = pygame.Surface((1400, 800))
 superficie_teste.fill("Azure")
+
+#esse clicks foi feito para evitar que mais de um rect esteja na posição y (ele vai ir para essa posição ao ser clicado)
 clicks = c = 0
 while True:
     //tela.blit serve para posicionar as imagens na tela
@@ -76,10 +79,12 @@ while True:
                             rect.midbottom = (madeira.midbottom[0], 760 )
 
                             if rect.midbottom[0]==300:
+                                #código para não dar erro caso a lista esteja vazia pois não vai ter nenhum rect para ele comparar
                                 if not haste1:
                                     haste1.append(rect)
                                     print("rect adicionado em lista vazia")
                                     break
+                                    #(Explicação parte2) Isso é para que toda vez que for mover um rect para uma outra haste ele compare com a última haste da lista, impossibilitando assim que tenha uma haste maior por cima de uma menor
                                     if rect.width > haste1[-1]:
                                         print("não da")
                                         break
