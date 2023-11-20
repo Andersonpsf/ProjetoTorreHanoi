@@ -8,6 +8,7 @@ pygame.init()
 tela = pygame.display.set_mode((1400, 790))
 pygame.display.set_caption("Torre Hanoi")
 clock = pygame.time.Clock()
+//listas para cada haste (madeira)
 pilha_haste1: List[pygame.Rect] = []
 pilha_haste2: List[pygame.Rect] = []
 pilha_haste3: List[pygame.Rect] = []
@@ -38,6 +39,7 @@ haste1 = []
 haste2 = []
 haste3 = []
 
+//rect de rectangle que serve para saber os pontos de colisão e posicionar melhor as peças
 pecas_rect = [surf.get_rect(midbottom=(300, 607 + i * 17)) for i, surf in enumerate(pecas_surf)]
 
 for pecas in pecas_rect:
@@ -51,6 +53,7 @@ superficie_teste = pygame.Surface((1400, 800))
 superficie_teste.fill("Azure")
 clicks = c = 0
 while True:
+    //tela.blit serve para posicionar as imagens na tela
     tela.blit(superficie_teste, (0, 5))
     tela.blit(superficie_base, (10, 760))
     tela.blit(madeira_surf, madeira_rect)
